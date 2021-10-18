@@ -7,4 +7,10 @@ Rails.application.routes.draw do
     collection { post :import}
   end
 
+  namespace 'api' do
+    namespace 'v1' do
+      resources :movies
+    end
+  end
+
 end

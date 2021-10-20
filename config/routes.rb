@@ -4,12 +4,15 @@ Rails.application.routes.draw do
 
   root to: "pages#index", as: "pages"
   resources :pages do
-    collection { post :import}
+
   end
 
   namespace 'api' do
     namespace 'v1' do
-      resources :movies
+      resources :movies do
+        collection { post :import }
+      end
+
     end
   end
 

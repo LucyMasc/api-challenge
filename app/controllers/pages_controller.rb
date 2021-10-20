@@ -15,6 +15,8 @@ class PagesController < Rails::ApplicationController
    redirect_to root_url, notice: "Movies imported."
   end
 
+
+
   private
 
   def movies_doc_params

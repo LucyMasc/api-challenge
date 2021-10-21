@@ -11,8 +11,6 @@ RSpec.describe Api::V1::MoviesController, type: :request do
     let(:year) { 2018 }
     let(:country) { 'United States' }
 
-    # let(:url) { "/api/v1/movies?query=#{title}"}
-
     it 'Should return all movies' do
       get '/api/v1/movies'
       expect(response).to have_http_status(:success)

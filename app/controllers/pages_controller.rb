@@ -10,10 +10,6 @@ class PagesController < Rails::ApplicationController
     # end
   end
 
-  def import
-   Movie.import(params[:file])
-   redirect_to root_url, notice: "Movies imported."
-  end
 
 
 

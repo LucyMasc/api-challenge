@@ -1,4 +1,4 @@
-<%= simple_form_for import_api_v1_movies_path, multipart: true do |f| %>
-<%= f.input :document, as: :file %>
-<%= f.submit :import %>
+<%= form_tag import_api_v1_movies_path, action: 'import', multipart: true, remote: true do |f| %>
+<%= file_field_tag :file %>
+<%= submit_tag "Import CSV" %>
 <% end %>

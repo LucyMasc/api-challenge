@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::MoviesController, type: :request do
   describe 'GET /movies?query=' do
-    before(:each) do
-      Movie.create!(title: 'Titanic', genre: "Movie", release_year: 2018, country: 'United States', published_at: '2020-7-5' , description: '101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic, 84 years later.')
-      Movie.create!(title: 'Wonder Woman', genre: "Tv Show", release_year: 2020, country: 'United States', published_at: '2018-7-5' , description: 'When a pilot crashes and tells of conflict in the outside world, Diana, an Amazonian warrior in training, leaves home to fight a war, discovering her full powers and true destiny.')
+    before :each do
+      @file = fixture_file_upload( 'data.csv', 'csv')
+      Movie.import(@file)
     end
 
     let(:genre) { 'Movie' }
-    let(:year) { 2018 }
+    let(:release_year) { '2014' }
     let(:country) { 'United States' }
 
     it 'Should return all movies' do
@@ -23,8 +23,8 @@ RSpec.describe Api::V1::MoviesController, type: :request do
       expect(JSON.parse(response.body)["data"].count).to eq(1)
     end
 
-    it 'should return movies with same year' do
-      get "/movies?query=#{year}"
+    it 'should return movies released within the same year' do
+      get "/movies?query=#{release_year}"
       expect(response).to have_http_status(:success)
       expect(JSON.parse(response.body)["data"].count).to eq(1)
     end

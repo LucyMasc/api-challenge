@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   # end
 
-  namespace 'api' do
-    namespace 'v1' do
-      resources :movies do
+  scope module: :api do
+    scope module: :v1 do
+      resources :movies, only: %i[index show] do
         collection { post :import }
       end
 

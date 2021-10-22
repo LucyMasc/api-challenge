@@ -11,10 +11,12 @@ RSpec.describe Api::V1::MoviesController, type: :request do
     let(:release_year) { '2014' }
     let(:country) { 'United States' }
 
-    it 'should return all movies' do
+    it 'should return all movies and in descending order' do
       get '/movies'
       expect(response).to have_http_status(:success)
       expect(JSON.parse(response.body)["data"].count).to eq(2)
+      expect(JSON.parse(response.body)["data"].first["release_year"]).to eq("2020")
+      expect(JSON.parse(response.body)["data"].last["release_year"]).to eq("2014")
     end
 
     it 'should return movies with same genre' do

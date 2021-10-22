@@ -1,24 +1,19 @@
-# README
+# Rest Api --- Challenge 1 - m2y
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Back-End
 
-Things you may want to cover:
+REST API with specific filters built using Ruby on Rails and Postgresql.
 
-* Ruby version
+Endpoints
 
-* System dependencies
+ - `GET '/':` for reading a .csv file
+ - `GET '/movies':` to list all movies
+###### * Data is ordered in descending order.
+Filters
 
-* Configuration
+ - `GET '/movies?query=:release_year'` to filter by `year`
+ - `GET '/movies?query=:genre'` to filter by `genre`
+ - `GET '/movies?query=:country'` to filter by `country`
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+###### Note: For uploading a .csv file successfully saving on db, headers of your file must match headers of fields on database.

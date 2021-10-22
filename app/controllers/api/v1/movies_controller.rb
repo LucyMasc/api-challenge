@@ -13,8 +13,12 @@ module Api
       end
 
       def import
-        Movie.import(params[:file])
-        redirect_to pages_path
+        begin
+          Movie.import(params[:file])
+          render json: { status: 'Success', message: 'Products successfully imported. Check it out on /movies' }, status: :ok
+        rescue ActiveRecord::RecordInvalid
+          render json: { status: 'ERROR', message: 'Not able to import products.', data: [] }, status: :unprocessable_entity
+        end
       end
     end
   end

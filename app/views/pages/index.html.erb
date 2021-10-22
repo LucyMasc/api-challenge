@@ -1,4 +1,9 @@
-<%= form_tag import_api_v1_movies_path, action: 'import', multipart: true, remote: true do |f| %>
-<%= file_field_tag :file %>
-<%= submit_tag "Import CSV" %>
-<% end %>
+<div style="margin: 20px 0 0 20px;">
+  <h1>Import your .csv file</h1>
+  <%= form_tag import_api_v1_movies_path, action: 'import', multipart: true, remote: true do |f| %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import CSV", style:"color: blue;" %>
+  <% end %>
+</div>
+
+

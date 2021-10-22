@@ -11,7 +11,7 @@ RSpec.describe Api::V1::MoviesController, type: :request do
     let(:release_year) { '2014' }
     let(:country) { 'United States' }
 
-    it 'Should return all movies' do
+    it 'should return all movies' do
       get '/movies'
       expect(response).to have_http_status(:success)
       expect(JSON.parse(response.body)["data"].count).to eq(2)

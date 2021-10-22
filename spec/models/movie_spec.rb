@@ -34,6 +34,5 @@ RSpec.describe Movie, type: :model do
       expect(movie).not_to be_valid
     end
   end
-
 end
 

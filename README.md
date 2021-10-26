@@ -1,8 +1,8 @@
 # Rest Api --- Challenge 1 - m2y
-
 ## Back-End
 
 REST API with specific filters built using Ruby on Rails and Postgresql.
+Check it out on https://m2y-api.herokuapp.com/ 
 
 Endpoints
 

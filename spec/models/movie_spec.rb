@@ -18,12 +18,13 @@ RSpec.describe Movie, type: :model do
   end
 
   describe 'validates' do
-    it 'title cannot be blank' do
+
+    it 'description cannot be blank' do
       movie = Movie.new(description: 'A movie that makes you test your code')
       expect(movie).not_to be_valid
     end
 
-    it 'description cannot be blank' do
+    it 'title cannot be blank' do
       movie = Movie.new(title: 'Test your code')
       expect(movie).not_to be_valid
     end
